@@ -1,6 +1,6 @@
 set $mod Mod4
 
-font pango:Source Code Pro, FontAwesome 8
+font pango:Monaco, FontAwesome 8
         
 floating_modifier $mod
 
@@ -22,11 +22,11 @@ set $base0E #cc99cc
 set $base0F #d27b53
 set $transparent #00000000
 
-set $ws1 "  "
-set $ws2 "  "
-set $ws3 "  "
-set $ws4 "  "
-set $ws5 "  "
+set $ws1 "1  web "
+set $ws2 "2  term "
+set $ws3 "3  code "
+set $ws4 "4  talk "
+set $ws5 "5   media "
 
 bindsym $mod+Return exec --no-startup-id urxvt
 
@@ -35,8 +35,6 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec --no-startup-id rofi -show run
 
 bindsym $mod+x exec --no-startup-id i3lock -u --image="/home/shafeenr/.config/lock.png"
-
-bindsym $mod+Shift+s sticky toggle
 
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -136,25 +134,18 @@ bar {
        status_command i3blocks
        i3bar_command i3bar -t
        position top
-       strip_workspace_numbers yes
-       separator_symbol "■"
        height 20
         colors {
          separator $transparent
          background $transparent
          statusline $base02
-         focused_workspace $transparent $transparent $base00
-         active_workspace $transparent $transparent $base07
-         inactive_workspace $transparent $transparent $base03
+         focused_workspace $transparent $transparent #f7f7f7
+         active_workspace $transparent $transparent #f7f7f7
+         inactive_workspace $transparent $transparent $e3e3e3
          urgent_workspace $base08 $base08 $transparent
          binding_mode $base08 $base08 $transparent
     }
 }
-
-exec --no-startup-id compton -b --config ~/.config/compton.conf
-exec --no-startup-id sh ~/.fehbg
-exec --no-startup-id xbanish
-exec --no-startup-id syncthing -no-browser
 
 new_window none
 new_float none
